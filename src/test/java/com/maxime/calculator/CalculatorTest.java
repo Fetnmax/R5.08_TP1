@@ -8,13 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CalculatorTest {
 
-    private Calculator calculator;
-
-    @BeforeEach
-    void setUp() {
-        calculator = new Calculator();
-    }
-
     @Test
     void add_devrait_retourner_5_quand_2_et_3_sont_passes_en_parametres() {
         // Given
@@ -22,7 +15,7 @@ public class CalculatorTest {
         int opD = 3;
 
         // When
-        int result = calculator.add(opG, opD);
+        int result = Calculator.add(opG, opD);
 
         // Then
         assertEquals(5, result);
@@ -35,15 +28,10 @@ public class CalculatorTest {
         int opD = 3;
 
         // When
-        int result = calculator.divide(opG, opD);
+        int result = Calculator.divide(opG, opD);
 
         // Then
         assertEquals(2, result);
-    }
-
-    @AfterEach
-    void tearDown() {
-        calculator = null;
     }
 
 }

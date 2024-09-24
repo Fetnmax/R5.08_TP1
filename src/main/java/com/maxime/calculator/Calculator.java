@@ -2,11 +2,11 @@ package com.maxime.calculator;
 
 public class Calculator {
 
-    public int add(int opG, int opD){
+    static int add(int opG, int opD){
         return opG + opD;
     } ;
 
-    public int divide(int opG, int opD){
+    static int divide(int opG, int opD){
         return opG / opD;
     } ;
 }
