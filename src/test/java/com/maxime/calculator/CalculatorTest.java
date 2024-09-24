@@ -7,7 +7,10 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.util.Set;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CalculatorTest {
 
@@ -63,6 +66,19 @@ public class CalculatorTest {
 
         // Then
         assertEquals(expectedResult, result);
+    }
+
+    @Test
+    void ensembleChiffres_devrait_retourner_1_quand_moins_1_1_est_passe_en_parametre() {
+        // Given
+        int pNombre = -11;
+
+        // When
+        Set<Integer> chiffres = calculator.ensembleChiffres(pNombre);
+
+        // Then
+        assertEquals(1, chiffres.size());
+        assertTrue(chiffres.contains(1));
     }
 
 }
