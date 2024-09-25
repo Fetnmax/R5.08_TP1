@@ -6,10 +6,16 @@ import java.util.Set;
 public class Calculator {
 
     public int add(int opG, int opD){
+        if (!(opG == (int)opG) || !(opD == (int)opD)) {
+            throw new IllegalArgumentException("Les opérandes doivent être des entiers");
+        }
         return opG + opD;
     } ;
 
     public int divide(int opG, int opD){
+        if (opD == 0) {
+            throw new IllegalArgumentException("Division par zéro impossible");
+        }
         return opG / opD;
     } ;
 

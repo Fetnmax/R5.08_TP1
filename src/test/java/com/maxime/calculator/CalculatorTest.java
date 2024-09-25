@@ -5,7 +5,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.Set;
 
@@ -81,4 +80,33 @@ public class CalculatorTest {
         assertTrue(chiffres.contains(1));
     }
 
+    @Test
+    void add_devrait_lancer_une_exception_quand_deux_strings_sont_passes_en_parametres() {
+        // Given
+        String opG = "2";
+        String opD = "3";
+
+        // When
+        try {
+            calculator.add(Integer.parseInt(opG), Integer.parseInt(opD));
+        } catch (IllegalArgumentException e) {
+            // Then
+            assertEquals("Les opérandes doivent être des entiers", e.getMessage());
+        }
+    }
+
+    @Test
+    void divide_devrait_lancer_une_exception_quand_0_est_passé_en_paramètre_pour_opD() {
+        // Given
+        int opG = 6;
+        int opD = 0;
+
+        // When
+        try {
+            calculator.divide(opG, opD);
+        } catch (IllegalArgumentException e) {
+            // Then
+            assertEquals("Division par zéro impossible", e.getMessage());
+        }
+    }
 }
