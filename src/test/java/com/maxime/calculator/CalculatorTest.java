@@ -81,17 +81,17 @@ public class CalculatorTest {
     }
 
     @Test
-    void add_devrait_lancer_une_exception_quand_deux_strings_sont_passes_en_parametres() {
+    void add_devrait_lancer_une_exception_quand_2_147_483_647_et_1_sont_passes_en_parametres() {
         // Given
-        String opG = "2";
-        String opD = "3";
+        int opG = Integer.MAX_VALUE;
+        int opD = 1;
 
         // When
         try {
-            calculator.add(Integer.parseInt(opG), Integer.parseInt(opD));
-        } catch (IllegalArgumentException e) {
+            calculator.add(opG, opD);
+        } catch (ArithmeticException e) {
             // Then
-            assertEquals("Les opérandes doivent être des entiers", e.getMessage());
+            assertEquals("Integer overflow", e.getMessage());
         }
     }
 

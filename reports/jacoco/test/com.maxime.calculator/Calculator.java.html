@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Calculator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Calculator</a> &gt; <a href="index.source.html" class="el_package">com.maxime.calculator</a> &gt; <span class="el_source">Calculator.java</span></div><h1>Calculator.java</h1><pre class="source lang-java linenums">package com.maxime.calculator;
+
+import java.util.HashSet;
+import java.util.Set;
+
+<span class="fc" id="L6">public class Calculator {</span>
+
+    public int add(int opG, int opD){
+<span class="fc" id="L9">        long result = (long) opG + (long) opD;</span>
+<span class="pc bpc" id="L10" title="1 of 4 branches missed.">        if (result &gt; Integer.MAX_VALUE || result &lt; Integer.MIN_VALUE) {</span>
+<span class="fc" id="L11">            throw new ArithmeticException(&quot;Integer overflow&quot;);</span>
+        }
+<span class="fc" id="L13">        return (int) result;</span>
+    } ;
+
+    public int divide(int opG, int opD){
+<span class="fc bfc" id="L17" title="All 2 branches covered.">        if (opD == 0) {</span>
+<span class="fc" id="L18">            throw new IllegalArgumentException(&quot;Division par zéro impossible&quot;);</span>
+        }
+<span class="fc" id="L20">        return opG / opD;</span>
+    } ;
+
+    public Set&lt;Integer&gt; ensembleChiffres(int pNombre) {
+<span class="fc" id="L24">        Set&lt;Integer&gt; chiffres = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L25">        String nombreStr = String.valueOf(Math.abs(pNombre));</span>
+
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        for (char c : nombreStr.toCharArray()) {</span>
+<span class="fc" id="L28">            chiffres.add(Character.getNumericValue(c));</span>
+        }
+
+<span class="fc" id="L31">        return chiffres;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

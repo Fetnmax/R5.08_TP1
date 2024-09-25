@@ -6,10 +6,11 @@ import java.util.Set;
 public class Calculator {
 
     public int add(int opG, int opD){
-        if (!(opG == (int)opG) || !(opD == (int)opD)) {
-            throw new IllegalArgumentException("Les opérandes doivent être des entiers");
+        long result = (long) opG + (long) opD;
+        if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
+            throw new ArithmeticException("Integer overflow");
         }
-        return opG + opD;
+        return (int) result;
     } ;
 
     public int divide(int opG, int opD){
